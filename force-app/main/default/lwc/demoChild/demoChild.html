@@ -1,0 +1,16 @@
+
+<template>
+    <div if:true={org.Org_Users__r}>
+        {org.firstUserName}
+    </div>
+    <div if:false={org.Org_Users__r}>
+        no user
+    </div>
+    <div>
+        {org.Name}
+    </div>
+    <div>
+        {org.domain__c}
+    </div>
+
+</template>

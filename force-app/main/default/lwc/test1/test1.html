@@ -1,14 +1,9 @@
 <template>
-        <ul class="slds-m-around_medium">
-            <template for:each={orgs} for:item="org">
-                <lightning-card key={orgs.Id} title={org.Id} icon-name="custom:custom15">
-                    <li>
-                        {org.Name}
-                    </li>       
-                    <li >
-                        {org.domain__c}
-                    </li>     
-                </lightning-card>
-            </template>
-        </ul>  
+    <ul class="slds-m-around_medium">
+        <template for:each={orgs} for:item="org">
+            <lightning-card key ={org.Id} title={org.Id} icon-name="custom:custom14">
+                <c-demo-child org-from-parent={org}></c-demo-child>
+            </lightning-card>
+        </template>
+    </ul>
 </template>

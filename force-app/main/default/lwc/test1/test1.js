@@ -1,7 +1,7 @@
-import { LightningElement } from 'lwc';
-import getOrgList from '@salesforce/apex/OrgManagementCustomer.getOrgList';
+import { LightningElement } from "lwc";
+import getOrgList from "@salesforce/apex/OrgManagementCustomer.getOrgList";
 export default class Test1 extends LightningElement {
-   /* contacts = [
+  /* contacts = [
         {
             Id: 'user1',
             Name: 'jkl',
@@ -18,14 +18,23 @@ export default class Test1 extends LightningElement {
             ip: 'homeworkds@123.com',
         },
     ];*/
-    orgs=[];
-    connectedCallback(){
-        console.log('sfsag');
-        getOrgList().then((res)=>{
-            console.log(res);
-           this.orgs=res;
-        }).catch(err=>{
-            console.log(err);
-        })
-    }
+  orgs = [];
+
+  connectedCallback() {
+    getOrgList()
+      .then((res) => {
+        let res1 = JSON.parse(JSON.stringify(res));
+        res1.forEach((element) => {
+          if (element.Org_Users__r) {
+            element.firstUserName = element.Org_Users__r[0].Name;
+          }
+        });
+        console.log(res1);
+
+        this.orgs = res1;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }
