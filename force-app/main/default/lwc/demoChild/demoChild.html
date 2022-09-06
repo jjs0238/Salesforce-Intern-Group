@@ -1,5 +1,6 @@
 
 <template>
+
     <div if:true={org.Org_Users__r}>
         {org.firstUserName}
     </div>
@@ -12,5 +13,8 @@
     <div>
         {org.domain__c}
     </div>
-
+    <div>
+        <lightning-formatted-url value={org.userUrl__c} tooltip="跳转"
+        label={org.userUrl__c} target="_blank" ></lightning-formatted-url>
+    </div>
 </template>

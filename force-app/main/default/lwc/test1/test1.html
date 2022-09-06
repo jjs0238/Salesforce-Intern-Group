@@ -1,7 +1,7 @@
 <template>
     <ul class="slds-m-around_medium">
         <template for:each={orgs} for:item="org">
-            <lightning-card key ={org.Id} title={org.Id} icon-name="custom:custom14">
+            <lightning-card key ={org.Id}  icon-name="custom:custom14">
                 <c-demo-child org-from-parent={org}></c-demo-child>
             </lightning-card>
         </template>
